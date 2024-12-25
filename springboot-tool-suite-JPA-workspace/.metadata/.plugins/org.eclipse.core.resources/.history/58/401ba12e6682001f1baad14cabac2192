@@ -1,0 +1,67 @@
+package com.prashanth.spring.boot.jpa.relations;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.prashanth.spring.boot.jpa.relations.entity.EmployeeDetails;
+import com.prashanth.spring.boot.jpa.relations.entity.Roles;
+import com.prashanth.spring.boot.jpa.relations.entity.repository.EmployeeRepository;
+import com.prashanth.spring.boot.jpa.relations.entity.repository.RolesRepository;
+
+@Component
+public class DbService {
+
+	@Autowired
+	EmployeeRepository employeeRepository;
+	
+	@Autowired
+	RolesRepository rolesRepository;
+	public void addEmployee() {
+	    // Check if roles exist
+	    Roles r1 = rolesRepository.findById(101).orElseGet(() -> {
+	        Roles role = new Roles();
+	        role.setRoleId(101);
+	        role.setRoleName("DEVELOPER");
+	        return rolesRepository.save(role); // Save if not found
+	    });
+
+	    Roles r2 = rolesRepository.findById(102).orElseGet(() -> {
+	        Roles role = new Roles();
+	        role.setRoleId(102);
+	        role.setRoleName("QA");
+	        return rolesRepository.save(role); // Save if not found
+	    });
+
+	    Roles r3 = rolesRepository.findById(103).orElseGet(() -> {
+	        Roles role = new Roles();
+	        role.setRoleId(103);
+	        role.setRoleName("SUPPORT");
+	        return rolesRepository.save(role); // Save if not found
+	    });
+
+	    EmployeeDetails e1 = new EmployeeDetails();
+	    e1.setEmpName("DAVID");
+	    e1.setEmail("david@gmail.com");
+	    e1.setGender("Male");
+	    e1.setRoles(List.of(r1, r2));
+
+	    EmployeeDetails e2 = new EmployeeDetails();
+	    e2.setEmpName("Mahesh");
+	    e2.setEmail("babu@gmail.com");
+	    e2.setGender("Male");
+	    e2.setRoles(List.of(r2, r3));
+
+	    EmployeeDetails e3 = new EmployeeDetails();
+	    e3.setEmpName("Hardik");
+	    e3.setEmail("pandia@gmail.com");
+	    e3.setGender("Male");
+	    e3.setRoles(List.of(r1, r3, r2));
+
+	    employeeRepository.save(e1);
+	    employeeRepository.save(e2);
+	    employeeRepository.save(e3);
+	}
+
+}

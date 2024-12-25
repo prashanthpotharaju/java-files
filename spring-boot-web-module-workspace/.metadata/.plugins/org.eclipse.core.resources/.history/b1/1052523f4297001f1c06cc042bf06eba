@@ -1,0 +1,32 @@
+package com.prashanth.builder;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class Student {
+
+	
+	public Student(int id2, String name2, String string, String password2, Object object, Object city2, int totalMarks2,
+			double avg2) {
+		// TODO Auto-generated constructor stub
+	}
+	private int id;
+	private String name;
+	
+	private int email;
+	private String password;
+	
+	private int gender;
+	private String city;
+	
+	private int totalMarks;
+	private double avg;
+	
+	
+}

@@ -1,0 +1,25 @@
+package com.autowired.spring.boot.zoo;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class Zoo {
+
+	public Zoo()
+	{
+		System.out.println("ZOO Object is Created.....");
+	}
+	
+	
+	@Autowired
+	private Animal lion;
+	public Animal getAnimal() {
+		return lion;
+	}
+	public void setAnimal(Animal lion) {
+		this.lion = lion;
+	}
+	
+	
+}

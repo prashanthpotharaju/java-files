@@ -1,0 +1,12 @@
+package com.prashanth.rest.header;
+
+import lombok.Data;
+
+@Data
+public class CandidateLogin {
+
+	private String userName;
+	private String password;
+	
+	
+}

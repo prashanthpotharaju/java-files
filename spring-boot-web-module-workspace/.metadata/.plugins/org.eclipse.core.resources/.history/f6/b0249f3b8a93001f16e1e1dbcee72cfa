@@ -1,0 +1,33 @@
+package com.prashanth.rest.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class FirstRestApiController {
+
+	@RequestMapping("/hello")
+	@ResponseBody  //if we remove it then it will look for the view file
+	//if it is not used means we need to add the view files 
+	public String sayHello()
+	{
+		
+		return "Hello EveryOne";
+	}
+	
+	
+	@RequestMapping("/doller/price")
+	@ResponseBody
+	public double getDoublePrice() {
+	return 89.9998;
+	}
+	
+	@RequestMapping("/order/info")
+	@ResponseBody
+	public Order getOrderData()
+	{
+		
+		return new Order("order1117",1222.3);
+	}
+}

@@ -1,0 +1,24 @@
+package com.prashanth.builder;
+
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
+public class Student {
+
+	
+	private int id;
+	private String name;
+	
+	private int email;
+	private String password;
+	
+	private int gender;
+	private String city;
+	
+	private int totalMarks;
+	private double avg;
+	
+	
+}

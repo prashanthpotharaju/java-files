@@ -1,0 +1,26 @@
+package com.prashanth.rest.header;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import jakarta.annotation.PostConstruct;
+
+@RestController
+public class HeaderManagementController {
+
+	//Requirement:As part of User Login RestService
+	//where client should send always their hostname as part of Header
+	//Request Header:hostname
+	
+	
+	@PostMapping("/candidate/login")
+	public String candidateLogin(@RequestBody CandidateLogin candidateLogin)
+	{
+		System.out.println("Login Request:"+candidateLogin);
+		//TODO -->SERVICE LAYER-->REPOSITORY-->ENTITY
+		return "User Login Success";
+	}
+	
+	
+}

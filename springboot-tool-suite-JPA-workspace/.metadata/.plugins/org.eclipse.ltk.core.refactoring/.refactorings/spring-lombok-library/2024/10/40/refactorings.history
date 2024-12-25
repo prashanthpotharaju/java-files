@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;com.prashanth.lombok&apos; to &apos;spring-lombok-library-1/src/main/java/com.prashanth.lombok&apos;&#x0D;&#x0A;- Original project: &apos;spring-lombok-library&apos;&#x0D;&#x0A;- Destination element: &apos;spring-lombok-library-1/src/main/java/com.prashanth.lombok&apos;&#x0D;&#x0A;- Original element: &apos;spring-lombok-library/src/main/java/com.prashanth.lombok&apos;" description="Copy package" destination="=spring-lombok-library-1/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.prashanth.lombok" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.prashanth.lombok" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1727937546747" version="1.0"/>
+</session>

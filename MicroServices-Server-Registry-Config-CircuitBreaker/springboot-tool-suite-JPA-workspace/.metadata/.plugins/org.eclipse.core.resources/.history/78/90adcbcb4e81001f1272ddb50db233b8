@@ -1,0 +1,5 @@
+package com.prashanth.lombok.demo;
+
+public class Users {
+
+}

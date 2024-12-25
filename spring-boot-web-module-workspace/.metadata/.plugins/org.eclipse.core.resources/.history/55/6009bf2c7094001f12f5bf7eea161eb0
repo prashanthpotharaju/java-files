@@ -1,0 +1,43 @@
+package com.prashanth.rest.api.controller;
+
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.prashanth.rest.api.dto.CandidateDetailsDto;
+import com.prashanth.rest.api.dto.OrderDetailsDto;
+
+@RestController
+public class CandidateManagementController {
+
+	
+	@PostMapping(path="/candidate/register",
+			consumes= {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE},
+			produces=MediaType.APPLICATION_JSON_VALUE
+			)
+	public String candidateReigister(@RequestBody CandidateDetailsDto candidateDetailsDto )
+	{
+		System.out.println("Recieved data :"+candidateDetailsDto);
+		
+		//Service Layer-->Repository
+		
+		return "Candidate Registered Successfullyy........";
+	}
+	
+	
+	
+	@PostMapping(path="/order/create",
+			consumes= {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE},
+			produces=MediaType.APPLICATION_JSON_VALUE
+			)
+	public String orderCreate(@RequestBody OrderDetailsDto orderDetailsDto )
+	{
+		System.out.println("Recieved data :"+orderDetailsDto);
+		
+		//Service Layer-->Repository
+		
+		return "Order Created Successfullyy........";
+	}
+	
+}

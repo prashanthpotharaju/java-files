@@ -1,0 +1,18 @@
+package com.prashanth.rest.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class FirstRestApiController {
+
+	@RequestMapping("/hello")
+	@ResponseBody  //if we remove it then it will look for the view file
+	public String sayHello()
+	{
+		
+		return "Hello EveryOne";
+	}
+	
+}

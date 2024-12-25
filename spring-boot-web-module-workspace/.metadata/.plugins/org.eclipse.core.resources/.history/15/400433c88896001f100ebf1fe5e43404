@@ -1,0 +1,25 @@
+spring.application.name=spring-boot-rest-api-candidate-json-arrays
+
+
+
+server.port=8888
+server.servlet.context-path=/consumer.com
+
+#DB Details:
+
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+spring.datasource.username=postgres
+spring.datasource.password=p1234
+
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.show-sql=true
+
+
+#The java classes comes under package are effected with below log levels--realtime below logs
+logging.level.org.springframework.web=debug
+#logging.level.org.springframework.boot=debug
+logging.level.com.prashanth.test.consumer.controller=debug
+
+
+#logging.level=TRACE

@@ -1,0 +1,16 @@
+package com.prashanth.rest.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class FirstRestApiController {
+
+	@RequestMapping("/hello")
+	public String sayHello()
+	{
+		
+		return "Hello EveryOne";
+	}
+	
+}

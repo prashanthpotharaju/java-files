@@ -1,0 +1,68 @@
+package com.prashanth.test.consumer.controller;
+
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.prashanth.test.consumer.dto.UserRequestConsumerDto;
+
+@RestController
+public class UsersController {
+	
+	
+	
+	@RequestMapping("/add")
+	public String addUser()
+	{
+		//TODO:  SERVICE LAYER-->REPOSITORY-->ENTITY
+		
+		
+		/*
+		 * Calling Rest Service of Another Application TO CALL REST API REQUIRED INFO
+		 * URL: http://localhost:9997/flipkart/user/create 
+		 * METHOD: POST 
+		 * REQUEST BODY/PAYLOAD :YES
+		 *  { 
+		 *  "name":"string",
+		 *   "email": "string",
+		 *    "password": "string",
+		 *     "contact": 0, 
+		 *     "gender":  "string",
+		 *  "city": "string" 
+		 *  }
+		 *  
+		 *  JSON FORMAT DATA OR XML DATA FORMAT DATA ACCEPT
+		 *  RESPONSE: STRING DATA TYPE
+		 *  CREATE A JAVA CLASS ASSOCIATED TO REQUEST PAYLOAD
+		 */
+		
+		
+		UserRequestConsumerDto userData=new UserRequestConsumerDto();
+		userData.setName("David");
+		userData.setEmail("david@gmail.com");
+		userData.setPassword("david1234");
+		userData.setContact(991478877);
+		userData.setCity("New York");
+		userData.setGender("Male");
+		
+		HttpEntity<UserRequestConsumerDto> entity=new HttpEntity<UserRequestConsumerDto>(userData);
+		
+		RestTemplate restTemplate=new RestTemplate();
+	ResponseEntity<String> responseEntity=	  restTemplate.exchange("http://localhost:9997/flipkart/user/create",
+				HttpMethod.POST, entity, String.class);
+		//exchange(URL,METHOD,REQUEST BODY,RESPONSE);
+		
+		
+		String response=responseEntity.getBody();
+		
+		//Response Details
+		System.out.println("Response Body:"+responseEntity.getBody());
+		System.out.println("Status Code:"+responseEntity.getStatusCode());
+		
+		return response;
+	}
+
+}

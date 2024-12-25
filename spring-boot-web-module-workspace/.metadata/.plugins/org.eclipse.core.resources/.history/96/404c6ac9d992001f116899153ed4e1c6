@@ -1,0 +1,7 @@
+<!--<h1><b>Welcome to Spring Boot Jsp Application</b></h1>-->
+
+<html>
+	<body color=red>
+<h1 ><b>${message}</b></h1>
+</body>
+</html>

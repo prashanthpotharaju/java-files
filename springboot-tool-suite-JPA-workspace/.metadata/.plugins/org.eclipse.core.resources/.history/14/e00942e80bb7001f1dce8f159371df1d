@@ -1,0 +1,68 @@
+package com.prashanth.spring.boot.jpa.relations;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.prashanth.spring.boot.jpa.relations.entity.EmployeeDetails;
+import com.prashanth.spring.boot.jpa.relations.entity.Roles;
+import com.prashanth.spring.boot.jpa.relations.entity.repository.EmployeeRepository;
+import com.prashanth.spring.boot.jpa.relations.entity.repository.RolesRepository;
+@Component
+public class DbService {
+
+    @Autowired
+    EmployeeRepository employeeRepository;
+
+    @Autowired
+    RolesRepository rolesRepository;
+
+    public void addEmployee() {
+        // Retrieve or create roles (retrieve them to make sure they are managed by the persistence context)
+        Roles r1 = rolesRepository.findById(101).orElseGet(() -> {
+            Roles newRole = new Roles();
+            newRole.setRoleId(101);
+            newRole.setRoleName("DEVELOPER");
+            return rolesRepository.save(newRole);
+        });
+
+        Roles r2 = rolesRepository.findById(102).orElseGet(() -> {
+            Roles newRole = new Roles();
+            newRole.setRoleId(102);
+            newRole.setRoleName("QA");
+            return rolesRepository.save(newRole);
+        });
+
+        Roles r3 = rolesRepository.findById(103).orElseGet(() -> {
+            Roles newRole = new Roles();
+            newRole.setRoleId(103);
+            newRole.setRoleName("SUPPORT");
+            return rolesRepository.save(newRole);
+        });
+
+        // Create employees and associate roles
+        EmployeeDetails e1 = new EmployeeDetails();
+        e1.setEmpName("DAVID");
+        e1.setEmail("david@gmail.com");
+        e1.setGender("Male");
+        e1.setRoles(List.of(r1, r2));  // Associate existing roles (no duplicates)
+
+        EmployeeDetails e2 = new EmployeeDetails();
+        e2.setEmpName("Mahesh");
+        e2.setEmail("babu@gmail.com");
+        e2.setGender("Male");
+        e2.setRoles(List.of(r2, r3));  // Associate existing roles (no duplicates)
+
+        EmployeeDetails e3 = new EmployeeDetails();
+        e3.setEmpName("Hardik");
+        e3.setEmail("pandia@gmail.com");
+        e3.setGender("Male");
+        e3.setRoles(List.of(r1, r3, r2));  // Associate existing roles (no duplicates)
+
+        // Save employees
+        employeeRepository.save(e1);
+        employeeRepository.save(e2);
+        employeeRepository.save(e3);
+    }
+}

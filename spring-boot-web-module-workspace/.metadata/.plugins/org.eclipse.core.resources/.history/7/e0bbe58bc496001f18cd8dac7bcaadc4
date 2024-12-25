@@ -1,0 +1,13 @@
+spring.application.name=spring-boot-profiles
+
+
+spring.profiles.active=sit
+
+server.port=8887
+server.servlet.context-path=/flipkart.com
+
+
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.show-sql=true
+
+
